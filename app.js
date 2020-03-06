@@ -1,9 +1,29 @@
 $(document).ready(function() {
 
     var topics = ["Ford", "Chevrolet", "GMC", "Honda", "Kia", "Cadillac"];
+    console.log(topics);
 
-    for (var i = 0; i < topics.length; i++) {
+    $("#addCarBrands").on("click", function(event) {
+        event.preventDefault();
+
+        topics.push($("#carBrands").val().trim());
+        console.log(topics);
+        $("#carBrands").val("");
         
+        var newButton = topics[topics.length - 1];
+
+        newButton = $("<button>");
+
+        newButton.addClass("topic-buttons");
+
+        newButton.attr("data-car", [topics.length - 1]);
+
+        newButton.text(topics.slice([topics.length -1]));
+
+        $("#buttonsGoHere").append(newButton);
+    })
+
+    for (var i = 0; i < topics.length; i++) {        
         
         var topicButton = $("<button>");
 
@@ -68,9 +88,6 @@ $(document).ready(function() {
                         }
                     })
                 }
-
             })
-
         })
-
 })
