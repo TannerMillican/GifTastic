@@ -36,9 +36,9 @@ $(document).ready(function() {
         $("#buttonsGoHere").append(topicButton)
     }
 
-        $("button").on("click", function() {
+        $(document.body).on("click", ".topic-buttons", function() {
 
-            var car = $(this).attr("data-car");
+            var car = this.innerText;
 
             var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
             car + "&api_key=alScwxLoXiuEIMitayW9E4FC2yoSmgRX&limit=10";
